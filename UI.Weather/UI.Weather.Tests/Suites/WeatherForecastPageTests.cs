@@ -43,13 +43,12 @@ namespace UI.Weather.Tests.Suites
         public void ForecastIsUpdatedWhenCityIsChanged()
         {
             //Setup
-            var initialTemp = GetForecastTemps();
 
             //Execute
             WeatherPage.UpdateCity("Edinburgh");
 
             //Assert
-            Assert.AreNotEqual(initialTemp, GetForecastTemps(), "Temperatures were not updated.");
+            Assert.AreEqual("18°", WeatherPage.ForecastDay(1).MaxTemp.Text, "Temperature was not updated.");
         }
 
         [TestMethod]
@@ -66,16 +65,6 @@ namespace UI.Weather.Tests.Suites
         }
 
         //Helpers
-
-        private string GetForecastTemps()
-        {
-            var weekTemp = "";
-            for (int i = 1; i <= 5; i++)
-            {
-                weekTemp += WeatherPage.ForecastDay(i).MaxTemp.Text;
-            }
-
-            return weekTemp;
-        }
+        
     }
 }
