@@ -28,6 +28,11 @@ namespace UI.Weather.Tests.Harness.Page
             return new ForecastRow(row);
         }
 
+        public ForecastHourDetail ForecastDetail(int row, int hourRow)
+        {
+            return new ForecastHourDetail(row, hourRow);
+        }
+
         public void Navigate()
         {
             //do nothing
